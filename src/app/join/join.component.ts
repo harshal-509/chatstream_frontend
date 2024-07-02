@@ -33,10 +33,10 @@ export class JoinComponent implements OnInit {
   }
 
   public join(username: string): Observable<{}> {
-    return this.http.post('http://localhost:8000/join', { username });
+    return this.http.post(process.env["BACKEND_URL"] || 'http://localhost:8000/join', { username });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     feather.replace();
   }
 }
